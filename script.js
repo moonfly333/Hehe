@@ -1,3 +1,12 @@
+const music = document.getElementById("bgMusic");
+
+music.volume = 1;
+
+window.addEventListener("load", () => {
+    music.play().catch(error => {
+        console.log("Browser blocked autoplay:", error);
+    });
+});
 const audio=document.getElementById('song');let started=false;document.addEventListener('click',async()=>{if(started)return;try{await audio.play();started=true;document.getElementById('sound').textContent='baby don’t cry · looping'}catch(e){document.getElementById('sound').textContent='sound waits for another click ↗'}},{once:true});
 document.getElementById('receiptBtn').onclick=()=>{let r=document.getElementById('receipt');r.classList.toggle('show');document.getElementById('receiptBtn').textContent=r.classList.contains('show')?'close the classified receipt −':'open the classified receipt ＋'};
 const eras=[['FILE 01 — THE BEGINNING','Two injured knees and a new girl.','I had both knees scraped and was sitting in class during PE. You were the new student, finishing your work. No dramatic soundtrack, no slow-motion corridor run. Just two kids accidentally starting a ten-year thing.','ORIGIN STORY'],['FILE 02 — ONGOING INVESTIGATION','Two yappers. No closing time.','We are, at heart, two people with a lot to say. The conversations keep happening, the lore keeps expanding, and somehow there is always something else to yap about. Scientists remain baffled. I remain available for gossip.','THE YAP YEARS'],['FILE 03 — DIARY: CLASSIFIED','Seo-jun was a very specific standard.','I once wrote that if I were a guy, I would date you if I were like Seo-jun from Love Rain. In my diary. In writing. This is a legal document now. And since I came out as bi, the court accepts that the hypothetical was not entirely hypothetical. Anyway. You were and are that girl.','RECEIPTS EXIST'],['FILE 04 — RIGHT NOW','Ten years later, and I still pick you.','You are still the sunshine one. I am still the brooding one. Maybe a little of my interests rubbed off on you; maybe your warmth rubbed off on me. We grew up, and I got to keep you in my life through it. That means more to me than I probably say out loud.','STILL MY PERSON']];document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');let e=eras[+b.dataset.i],d=document.querySelector('.era');d.style.animation='none';void d.offsetWidth;d.style.animation='';['eraKicker','eraTitle','eraText','eraTag'].forEach((id,i)=>document.getElementById(id).textContent=e[i])});
